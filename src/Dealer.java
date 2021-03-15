@@ -55,13 +55,13 @@ public class Dealer {
     }
     @Test
     public void test() throws Exception {
-        String allPath = "菜谱\\米博菜谱0225（40道）";
+        String allPath = "3.8-3\\3.8-3.14（59道）\\米博\\米博菜谱part3";
         File[] files = getFileArray(allPath);
         for(File f : files){
             if(f.isDirectory()){
                 String path = f.getName().trim();
-                moveDir(allPath,path);
-                String dname = allPath+"\\"+path+"\\"+path+".docx";
+                //moveDir(allPath,path);
+                String dname = allPath+"\\"+path+"\\"+path+"2.docx";
                 String nname = allPath+"\\"+path+"\\"+path+"\\"+path+".docx";
                 String[] text = getText(new File(dname),"");
                 setProperties(text);

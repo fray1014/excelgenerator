@@ -55,13 +55,13 @@ public class Dealer {
     }
     @Test
     public void test() throws Exception {
-        String allPath = "3.8-3\\3.8-3.14（59道）\\米博\\米博菜谱part3";
+        String allPath = "3.8-3\\3.8-3.14（41道）\\2月ZSS（24道）";
         File[] files = getFileArray(allPath);
         for(File f : files){
             if(f.isDirectory()){
                 String path = f.getName().trim();
                 //moveDir(allPath,path);
-                String dname = allPath+"\\"+path+"\\"+path+"2.docx";
+                String dname = allPath+"\\"+path+"\\"+path+".docx";
                 String nname = allPath+"\\"+path+"\\"+path+"\\"+path+".docx";
                 String[] text = getText(new File(dname),"");
                 setProperties(text);
@@ -135,8 +135,8 @@ public class Dealer {
                         !entry.getKey().contains("（") ? entry.getKey().length():entry.getKey().indexOf("（")));
                 row.getCell(5).setCellValue(yongliang(entry.getValue()));
                 Cell cell = row.getCell(6);
-                //cell.setCellValue(beizhu(entry.getValue()));
-                cell.setCellValue(beizhu(entry.getKey()));
+                cell.setCellValue(beizhu(entry.getValue()));
+                //cell.setCellValue(beizhu(entry.getKey()));
                 cellStyle2 = row.getCell(4).getCellStyle();
                 cell.setCellStyle(cellStyle2);
             }else{
@@ -236,8 +236,8 @@ public class Dealer {
                 //用量为适量
                 if(start == text[i].length()){
                     String[] str1 = text[i].split(" ");
-                    mat.put(str1[0],"适量");
-                    //mat.put(str1[0].substring(0,str1[0].length()-2),"适量");
+                    //mat.put(str1[0],"适量");
+                    mat.put(str1[0].substring(0,str1[0].length()-2),"适量");
                 }else{//用量有数字
                     //判断空格
                     if(str0[0].endsWith(" ")){
